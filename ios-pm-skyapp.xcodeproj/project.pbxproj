@@ -13,6 +13,7 @@
 		CD29DE2820DB93C40033998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD29DE2720DB93C40033998C /* Assets.xcassets */; };
 		CD29DE2B20DB93C40033998C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD29DE2920DB93C40033998C /* LaunchScreen.storyboard */; };
 		CD29DE3520DBBEF20033998C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29DE3420DBBEF20033998C /* UserViewController.swift */; };
+		CD9AEE7D20DCFD13000D2819 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AEE7C20DCFD13000D2819 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD29DE2A20DB93C40033998C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD29DE2C20DB93C40033998C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD29DE3420DBBEF20033998C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		CD9AEE7C20DCFD13000D2819 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +61,9 @@
 				CD29DE2020DB93C30033998C /* AppDelegate.swift */,
 				CD29DE2C20DB93C40033998C /* Info.plist */,
 				CD29DE2720DB93C40033998C /* Assets.xcassets */,
-				CD29DE3620DBC4540033998C /* Controller */,
+				CD9AEE7E20DCFD17000D2819 /* Model */,
 				CD29DE3720DBC4810033998C /* View */,
+				CD29DE3620DBC4540033998C /* Controller */,
 			);
 			path = "ios-pm-skyapp";
 			sourceTree = "<group>";
@@ -81,6 +84,14 @@
 				CD29DE2920DB93C40033998C /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CD9AEE7E20DCFD17000D2819 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AEE7C20DCFD13000D2819 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9AEE7D20DCFD13000D2819 /* User.swift in Sources */,
 				CD29DE2320DB93C30033998C /* ViewController.swift in Sources */,
 				CD29DE3520DBBEF20033998C /* UserViewController.swift in Sources */,
 				CD29DE2120DB93C30033998C /* AppDelegate.swift in Sources */,

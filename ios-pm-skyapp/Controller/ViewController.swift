@@ -9,21 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let username = "hello"
-    let password = "world"
+    let user = User(username: "hello", password: "world")
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         usernameTextField.setIcon(with: "user.png")
         passwordTextField.setIcon(with: "passwords.png")
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @IBAction func loginButtonDidTap(_ sender: Any) {
         if let username = usernameTextField.text , let passwords = passwordTextField.text {
-            if username == self.username && passwords == self.password {
+            if username == user.username && passwords == user.password {
                 print("hello world")
                 performSegue(withIdentifier: "user log in", sender: self)
             } else {
@@ -38,8 +43,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let userViewController = segue.destination as? UserViewController{
-            userViewController.userData.insert(username, at: 0)
-            userViewController.userData.insert(password, at: 1)
+           userViewController.user = self.user
         }
         
     }
@@ -64,6 +68,13 @@ extension UITextField {
         
     }
 
+}
+
+extension UIViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }
 
 

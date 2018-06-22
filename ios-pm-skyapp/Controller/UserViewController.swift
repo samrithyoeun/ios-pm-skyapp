@@ -11,15 +11,16 @@ import UIKit
 class UserViewController: UIViewController {
     
     var userData: [String] = []
+    var user = User(username: nil, password: nil)
     
     @IBOutlet weak var userDetailLabel: UILabel!
 
    
     override func viewDidLoad() {
-    
-        if !userData.isEmpty {
-            userDetailLabel.text = "You have log in with \n username : \(userData[0]) \n password : \(userData[1])"
+        if let username = user.username, let password = user.password{
+            userDetailLabel.text = "You have log in with \n username : \(username) \n password : \(password)"
         }
+        
     }
     
 }
