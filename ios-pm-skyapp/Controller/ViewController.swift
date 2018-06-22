@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let username = "hello"
+    let password = "world"
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,7 +23,7 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonDidTap(_ sender: Any) {
         if let username = usernameTextField.text , let passwords = passwordTextField.text {
-            if username == "hello" && passwords == "world" {
+            if username == self.username && passwords == self.password {
                 print("hello world")
                 performSegue(withIdentifier: "user log in", sender: self)
             } else {
@@ -35,7 +36,13 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let userViewController = segue.destination as? UserViewController{
+            userViewController.userData.insert(username, at: 0)
+            userViewController.userData.insert(password, at: 1)
+        }
+        
+    }
 }
 
 

@@ -9,11 +9,17 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
-    @IBOutlet weak var userDetailLabel: UILabel!
     
+    var userData: [String] = []
+    
+    @IBOutlet weak var userDetailLabel: UILabel!
+
+   
     override func viewDidLoad() {
-        userDetailLabel.text = "You have sucessfully log in !"
+    
+        if !userData.isEmpty {
+            userDetailLabel.text = "You have log in with \n username : \(userData[0]) \n password : \(userData[1])"
+        }
     }
     
 }
