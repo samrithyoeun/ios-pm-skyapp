@@ -10,10 +10,11 @@ import UIKit
 import KeychainSwift
 
 class ViewController: UIViewController {
-    let user = User(username: "hello", password: "world")
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    let user = User(username: "hello", password: "world")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +49,12 @@ class ViewController: UIViewController {
     private func login(user: User) {
             if user.username == self.user.username && user.password == self.user.password {
                 setUserInfoToKeychain(user: user)
-                print("user log in")
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "user log in", sender: self)
                 }
                 
             } else {
-                let alert = UIAlertController(title: "Attention", message: "Wrong Username or password", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    print("The \"OK\" alert occured.")
-                }))
-                self.present(alert, animated: true, completion: nil)
+                alert(message: "Wrong username / password", title: "Attention!")
             }
     }
     

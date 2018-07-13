@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		49A03530C5000EC5CF278732 /* Pods_ios_pm_skyapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D927238D41975FDE7C683D9 /* Pods_ios_pm_skyapp.framework */; };
+		53B6189120F88D0F0083EB43 /* SwiftyPlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189020F88D0F0083EB43 /* SwiftyPlistManager.swift */; };
+		53B6189420F88E6D0083EB43 /* Person.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53B6189320F88E6D0083EB43 /* Person.plist */; };
+		53B6189A20F897640083EB43 /* UIApplicationEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189920F897640083EB43 /* UIApplicationEx.swift */; };
+		53B6189C20F897680083EB43 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189B20F897680083EB43 /* Helper.swift */; };
 		CD29DE2120DB93C30033998C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29DE2020DB93C30033998C /* AppDelegate.swift */; };
 		CD29DE2320DB93C30033998C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29DE2220DB93C30033998C /* ViewController.swift */; };
 		CD29DE2620DB93C30033998C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD29DE2420DB93C30033998C /* Main.storyboard */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		2AC4A4A8CD16C366087D032F /* Pods-ios-pm-skyapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-pm-skyapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-pm-skyapp/Pods-ios-pm-skyapp.debug.xcconfig"; sourceTree = "<group>"; };
 		4D927238D41975FDE7C683D9 /* Pods_ios_pm_skyapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_pm_skyapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53B6189020F88D0F0083EB43 /* SwiftyPlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPlistManager.swift; sourceTree = "<group>"; };
+		53B6189320F88E6D0083EB43 /* Person.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Person.plist; sourceTree = "<group>"; };
+		53B6189920F897640083EB43 /* UIApplicationEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationEx.swift; sourceTree = "<group>"; };
+		53B6189B20F897680083EB43 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A9934B37BC206F75FB6CE5B7 /* Pods-ios-pm-skyapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-pm-skyapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-pm-skyapp/Pods-ios-pm-skyapp.release.xcconfig"; sourceTree = "<group>"; };
 		CD29DE1D20DB93C30033998C /* ios-pm-skyapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-pm-skyapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD29DE2020DB93C30033998C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +58,34 @@
 				CD29DE2C20DB93C40033998C /* Info.plist */,
 				CD29DE2720DB93C40033998C /* Assets.xcassets */,
 				CD29DE2920DB93C40033998C /* LaunchScreen.storyboard */,
+				53B6189320F88E6D0083EB43 /* Person.plist */,
 			);
 			path = SupportingFile;
+			sourceTree = "<group>";
+		};
+		53B6188F20F88CFC0083EB43 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				53B6189020F88D0F0083EB43 /* SwiftyPlistManager.swift */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		53B6189220F88E490083EB43 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				53B6189D20F897750083EB43 /* Extension */,
+				53B6189B20F897680083EB43 /* Helper.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		53B6189D20F897750083EB43 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				53B6189920F897640083EB43 /* UIApplicationEx.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		6E20E7D6215EE003524EBE8C /* Frameworks */ = {
@@ -93,10 +127,12 @@
 			isa = PBXGroup;
 			children = (
 				CD29DE2020DB93C30033998C /* AppDelegate.swift */,
-				53B6188920F87BD90083EB43 /* SupportingFile */,
 				CD9AEE7E20DCFD17000D2819 /* Model */,
 				CD29DE3720DBC4810033998C /* View */,
 				CD29DE3620DBC4540033998C /* Controller */,
+				53B6189220F88E490083EB43 /* Common */,
+				53B6188F20F88CFC0083EB43 /* ThirdParty */,
+				53B6188920F87BD90083EB43 /* SupportingFile */,
 			);
 			path = "ios-pm-skyapp";
 			sourceTree = "<group>";
@@ -187,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD29DE2B20DB93C40033998C /* LaunchScreen.storyboard in Resources */,
+				53B6189420F88E6D0083EB43 /* Person.plist in Resources */,
 				CD29DE2820DB93C40033998C /* Assets.xcassets in Resources */,
 				CD29DE2620DB93C30033998C /* Main.storyboard in Resources */,
 			);
@@ -238,10 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B6189120F88D0F0083EB43 /* SwiftyPlistManager.swift in Sources */,
 				CD9AEE7D20DCFD13000D2819 /* User.swift in Sources */,
+				53B6189A20F897640083EB43 /* UIApplicationEx.swift in Sources */,
 				CD29DE2320DB93C30033998C /* ViewController.swift in Sources */,
 				CD29DE3520DBBEF20033998C /* UserViewController.swift in Sources */,
 				CD29DE2120DB93C30033998C /* AppDelegate.swift in Sources */,
+				53B6189C20F897680083EB43 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
