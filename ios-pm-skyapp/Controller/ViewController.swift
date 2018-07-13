@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class ViewController: UIViewController {
     let user = User(username: "hello", password: "world")
@@ -20,6 +21,11 @@ class ViewController: UIViewController {
         passwordTextField.delegate = self
         usernameTextField.setIcon(with: "user.png")
         passwordTextField.setIcon(with: "passwords.png")
+        
+        if let userInfo = getUserInfoFromKeyChain() {
+            print(userInfo)
+            login(user: userInfo)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -28,9 +34,25 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonDidTap(_ sender: Any) {
         if let username = usernameTextField.text , let passwords = passwordTextField.text {
-            if username == user.username && passwords == user.password {
-                print("hello world")
-                performSegue(withIdentifier: "user log in", sender: self)
+            let user = User(username: username, password: passwords)
+            login(user: user)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let userViewController = segue.destination as? UserViewController{
+            userViewController.user = self.user
+        }
+    }
+    
+    private func login(user: User) {
+            if user.username == self.user.username && user.password == self.user.password {
+                setUserInfoToKeychain(user: user)
+                print("user log in")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "user log in", sender: self)
+                }
+                
             } else {
                 let alert = UIAlertController(title: "Attention", message: "Wrong Username or password", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
@@ -38,14 +60,24 @@ class ViewController: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
             }
-        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let userViewController = segue.destination as? UserViewController{
-           userViewController.user = self.user
-        }
+    private func setUserInfoToKeychain(user: User) {
+        let keychain = KeychainSwift()
+        keychain.set(user.username! , forKey: "username")
+        keychain.set(user.password! , forKey: "password")
+    }
+    
+    private func getUserInfoFromKeyChain() -> User? {
+        let keychain = KeychainSwift()
+        let username = keychain.get("username")
+        let password = keychain.get("password")
         
+        if let username = username, let password = password {
+            return User(username: username, password: password)
+        } else {
+            return nil
+        }
     }
 }
 

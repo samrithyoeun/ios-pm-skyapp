@@ -75,7 +75,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ve-aW-RC3"/>
-                                    <segue destination="e1h-jA-tKu" kind="show" identifier="user log in" id="wfj-Pg-0wX"/>
+                                    <segue destination="e1h-jA-tKu" kind="show" identifier="user log in" id="E9M-Ws-0Ae"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G62-Ru-hMi">
@@ -180,7 +180,7 @@
         <!--User View Controller-->
         <scene sceneID="UoZ-WZ-ZDe">
             <objects>
-                <viewController id="e1h-jA-tKu" customClass="UserViewController" customModule="ios_pm_skyapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userVC" id="e1h-jA-tKu" customClass="UserViewController" customModule="ios_pm_skyapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wgj-s8-0Jx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
