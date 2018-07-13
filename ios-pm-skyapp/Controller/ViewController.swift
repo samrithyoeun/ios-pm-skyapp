@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         usernameTextField.setIcon(with: "user.png")
         passwordTextField.setIcon(with: "passwords.png")
         
-        if let userInfo = getUserInfoFromKeyChain() {
+        if let userInfo = KeychainManager.shared.getUserInfoFromKeyChain() {
             print(userInfo)
             login(user: userInfo)
         }
@@ -47,55 +47,17 @@ class ViewController: UIViewController {
     }
     
     private func login(user: User) {
-            if user.username == self.user.username && user.password == self.user.password {
-                setUserInfoToKeychain(user: user)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "user log in", sender: self)
-                }
-                
-            } else {
-                alert(message: "Wrong username / password", title: "Attention!")
+        if user.username == self.user.username && user.password == self.user.password {
+            KeychainManager.shared.setUserInfoToKeychain(user: user)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "user log in", sender: self)
             }
-    }
-    
-    private func setUserInfoToKeychain(user: User) {
-        let keychain = KeychainSwift()
-        keychain.set(user.username! , forKey: "username")
-        keychain.set(user.password! , forKey: "password")
-    }
-    
-    private func getUserInfoFromKeyChain() -> User? {
-        let keychain = KeychainSwift()
-        let username = keychain.get("username")
-        let password = keychain.get("password")
-        
-        if let username = username, let password = password {
-            return User(username: username, password: password)
+            
         } else {
-            return nil
+            alert(message: "Wrong username / password", title: "Attention!")
         }
     }
-}
-
-
-extension UITextField {
-   
-    func setIcon(with iconName : String){
-        let iconWidth = 20
-        let iconHeight = 20
-        let imageView = UIImageView()
-        let icon = UIImage(named: iconName)
-        
-        imageView.image = icon
-        imageView.frame = CGRect(x: 10, y: 10, width: iconWidth, height: iconHeight)
-        leftViewMode = UITextFieldViewMode.always
-        addSubview(imageView)
-        
-        let paddingView = UIView(frame: CGRect(x: 10, y: 10, width: 40, height: self.frame.height))
-        leftView = paddingView
-        
-    }
-
+    
 }
 
 extension UIViewController: UITextFieldDelegate {
@@ -104,11 +66,3 @@ extension UIViewController: UITextFieldDelegate {
         return false
     }
 }
-
-
-
-
-
-
-
-
