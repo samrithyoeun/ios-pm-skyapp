@@ -12,6 +12,13 @@
 		53B6189420F88E6D0083EB43 /* Person.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53B6189320F88E6D0083EB43 /* Person.plist */; };
 		53B6189A20F897640083EB43 /* UIApplicationEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189920F897640083EB43 /* UIApplicationEx.swift */; };
 		53B6189C20F897680083EB43 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189B20F897680083EB43 /* Helper.swift */; };
+		53B6189F20F8A9960083EB43 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6189E20F8A9960083EB43 /* Result.swift */; };
+		53B618A120F8AD120083EB43 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618A020F8AD120083EB43 /* TemplateViewController.swift */; };
+		53B618A320F8AD220083EB43 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618A220F8AD220083EB43 /* OneViewController.swift */; };
+		53B618A520F8AD940083EB43 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618A420F8AD940083EB43 /* TwoViewController.swift */; };
+		53B618A720F8AFEB0083EB43 /* OnePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618A620F8AFEB0083EB43 /* OnePresenter.swift */; };
+		53B618AA20F8B03A0083EB43 /* OnePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618A920F8B03A0083EB43 /* OnePresenterProtocol.swift */; };
+		53B618AC20F8B09A0083EB43 /* OneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B618AB20F8B09A0083EB43 /* OneViewProtocol.swift */; };
 		CD29DE2120DB93C30033998C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29DE2020DB93C30033998C /* AppDelegate.swift */; };
 		CD29DE2320DB93C30033998C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29DE2220DB93C30033998C /* ViewController.swift */; };
 		CD29DE2620DB93C30033998C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD29DE2420DB93C30033998C /* Main.storyboard */; };
@@ -28,6 +35,13 @@
 		53B6189320F88E6D0083EB43 /* Person.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Person.plist; sourceTree = "<group>"; };
 		53B6189920F897640083EB43 /* UIApplicationEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationEx.swift; sourceTree = "<group>"; };
 		53B6189B20F897680083EB43 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		53B6189E20F8A9960083EB43 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		53B618A020F8AD120083EB43 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		53B618A220F8AD220083EB43 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		53B618A420F8AD940083EB43 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		53B618A620F8AFEB0083EB43 /* OnePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePresenter.swift; sourceTree = "<group>"; };
+		53B618A920F8B03A0083EB43 /* OnePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePresenterProtocol.swift; sourceTree = "<group>"; };
+		53B618AB20F8B09A0083EB43 /* OneViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewProtocol.swift; sourceTree = "<group>"; };
 		A9934B37BC206F75FB6CE5B7 /* Pods-ios-pm-skyapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-pm-skyapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-pm-skyapp/Pods-ios-pm-skyapp.release.xcconfig"; sourceTree = "<group>"; };
 		CD29DE1D20DB93C30033998C /* ios-pm-skyapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-pm-skyapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD29DE2020DB93C30033998C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +90,7 @@
 			children = (
 				53B6189D20F897750083EB43 /* Extension */,
 				53B6189B20F897680083EB43 /* Helper.swift */,
+				53B6189E20F8A9960083EB43 /* Result.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -86,6 +101,15 @@
 				53B6189920F897640083EB43 /* UIApplicationEx.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		53B618A820F8AFF10083EB43 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				53B618A920F8B03A0083EB43 /* OnePresenterProtocol.swift */,
+				53B618A620F8AFEB0083EB43 /* OnePresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		6E20E7D6215EE003524EBE8C /* Frameworks */ = {
@@ -130,6 +154,7 @@
 				CD9AEE7E20DCFD17000D2819 /* Model */,
 				CD29DE3720DBC4810033998C /* View */,
 				CD29DE3620DBC4540033998C /* Controller */,
+				53B618A820F8AFF10083EB43 /* Presenter */,
 				53B6189220F88E490083EB43 /* Common */,
 				53B6188F20F88CFC0083EB43 /* ThirdParty */,
 				53B6188920F87BD90083EB43 /* SupportingFile */,
@@ -142,6 +167,8 @@
 			children = (
 				CD29DE2220DB93C30033998C /* ViewController.swift */,
 				CD29DE3420DBBEF20033998C /* UserViewController.swift */,
+				53B618A020F8AD120083EB43 /* TemplateViewController.swift */,
+				53B618A420F8AD940083EB43 /* TwoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -150,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				CD29DE2420DB93C30033998C /* Main.storyboard */,
+				53B618AB20F8B09A0083EB43 /* OneViewProtocol.swift */,
+				53B618A220F8AD220083EB43 /* OneViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,13 +304,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B618AA20F8B03A0083EB43 /* OnePresenterProtocol.swift in Sources */,
 				53B6189120F88D0F0083EB43 /* SwiftyPlistManager.swift in Sources */,
+				53B618A320F8AD220083EB43 /* OneViewController.swift in Sources */,
 				CD9AEE7D20DCFD13000D2819 /* User.swift in Sources */,
+				53B618A720F8AFEB0083EB43 /* OnePresenter.swift in Sources */,
+				53B618AC20F8B09A0083EB43 /* OneViewProtocol.swift in Sources */,
 				53B6189A20F897640083EB43 /* UIApplicationEx.swift in Sources */,
 				CD29DE2320DB93C30033998C /* ViewController.swift in Sources */,
 				CD29DE3520DBBEF20033998C /* UserViewController.swift in Sources */,
 				CD29DE2120DB93C30033998C /* AppDelegate.swift in Sources */,
+				53B6189F20F8A9960083EB43 /* Result.swift in Sources */,
 				53B6189C20F897680083EB43 /* Helper.swift in Sources */,
+				53B618A120F8AD120083EB43 /* TemplateViewController.swift in Sources */,
+				53B618A520F8AD940083EB43 /* TwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

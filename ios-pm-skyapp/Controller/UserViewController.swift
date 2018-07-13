@@ -10,7 +10,7 @@ import UIKit
 import KeychainSwift
 
 class UserViewController: UIViewController {
- 
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var jobTextField: UITextField!
@@ -30,9 +30,7 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func setToPlistButtonTapped(_ sender: Any) {
-        SwiftyPlistManager.shared.save(nameTextField.text ?? "", forKey: "name", toPlistWithName: plist) { (err) in print(err.debugDescription) }
-        SwiftyPlistManager.shared.save(genderTextField.text ?? "", forKey: "sex", toPlistWithName: plist) { (err) in print(err.debugDescription) }
-        SwiftyPlistManager.shared.save(jobTextField.text ?? "", forKey: "job", toPlistWithName: plist) { (err) in print(err.debugDescription) }
+        setData(name: nameTextField.text!, sex: genderTextField.text!, job: jobTextField.text!)
     }
     
     @IBAction func getDataFromPlistButtonTapped(_ sender: Any) {
@@ -55,6 +53,7 @@ class UserViewController: UIViewController {
         }
         
         alert(message: "name: \(name) \n sex: \(sex)\n job: \(job)", title: "Infomation")
+        loadData()
     }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
@@ -73,4 +72,50 @@ class UserViewController: UIViewController {
         keychain.set(user.password! , forKey: "password")
     }
     
+    private func loadData(callback: (Result<[String]>) -> () ) {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let documentDirectory = paths[0] as! String
+        let path = documentDirectory.appending("Person.plist")
+        let fileManager = FileManager.default
+        if(!fileManager.fileExists(atPath: path)){
+            if let bundlePath = Bundle.main.path(forResource: "Person", ofType: "plist"){
+                print(path)
+                let result = NSMutableDictionary(contentsOfFile: bundlePath)
+                print("Bundle file myData.plist is -> \(result?.description)")
+                do{
+                    try fileManager.copyItem(atPath: bundlePath, toPath: path)
+                }catch{
+                    print("copy failure.")
+                }
+            }else{
+                print("file myData.plist not found.")
+            }
+        }
+        
+        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        print("load myData.plist is ->\(resultDictionary?.description)")
+        
+        let myDict = NSDictionary(contentsOfFile: path)
+        if let dict = myDict{
+            let name = dict.object(forKey: "name") as! String?
+            let sex = dict.object(forKey: "sex") as! String?
+            let job = dict.object(forKey: "job") as! String?
+            callback(Result.success([name, sex, job])
+        } else {
+            callback(Result.failure("cannot get data"))
+        }
+    }
+    
+    private func setData(name: String, sex: String, job: String) {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let documentDirectory = paths.object(at: 0) as! String
+        let path = documentDirectory.appending("Person.plist")
+        let dicts: NSMutableDictionary = [:]
+        
+        dicts.setObject(name , forKey: "name" as NSCopying )
+        dicts.setObject(sex , forKey: "sex" as NSCopying )
+        dicts.setObject(job , forKey: "job" as NSCopying )
+        
+        dicts.write(toFile: path, atomically: true)
+    }
 }
